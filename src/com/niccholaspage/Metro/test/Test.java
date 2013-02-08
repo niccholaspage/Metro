@@ -14,6 +14,8 @@ public class Test extends MetroPlugin {
 		
 		for (Player player : getServer().getOnlinePlayers()){
 			getLogger().info(player.getName());
+			
+			player.sendMessage("Testing the gaben");
 		}
 		
 		getLogger().info("Offline Players:");
