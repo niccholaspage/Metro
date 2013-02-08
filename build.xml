@@ -30,7 +30,7 @@
   
   <target name="compress" description="Compression target">
 	<echo>Compressing</echo>
-        <jar jarfile="Metro.jar" basedir="build" includes="com/**/*, plugin.yml, config.yml">
+        <jar jarfile="Metro.jar" basedir="build" includes="com/**/*, plugin.yml, properties.yml">
         </jar>
     	<delete dir="build" />
   </target>
