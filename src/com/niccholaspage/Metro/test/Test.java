@@ -1,8 +1,8 @@
 package com.niccholaspage.Metro.test;
 
 import com.niccholaspage.Metro.base.MetroPlugin;
-import com.niccholaspage.Metro.base.player.MetroOfflinePlayer;
-import com.niccholaspage.Metro.base.player.MetroPlayer;
+import com.niccholaspage.Metro.base.player.OfflinePlayer;
+import com.niccholaspage.Metro.base.player.Player;
 
 public class Test extends MetroPlugin {
 	public void onEnable(){
@@ -12,13 +12,13 @@ public class Test extends MetroPlugin {
 		
 		getLogger().info("Online Players:");
 		
-		for (MetroPlayer player : getServer().getOnlinePlayers()){
+		for (Player player : getServer().getOnlinePlayers()){
 			getLogger().info(player.getName());
 		}
 		
 		getLogger().info("Offline Players:");
 		
-		for (MetroOfflinePlayer player : getServer().getOfflinePlayers()){
+		for (OfflinePlayer player : getServer().getOfflinePlayers()){
 			getLogger().info(player.getName());
 		}
 	}

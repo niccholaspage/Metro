@@ -2,11 +2,11 @@ package com.niccholaspage.Metro.base;
 
 import java.util.logging.Logger;
 
-import com.niccholaspage.Metro.base.server.MetroServer;
+import com.niccholaspage.Metro.base.server.Server;
 
 
 public class MetroPlugin {
-	private MetroServer server;
+	private Server server;
 	
 	private Logger logger;
 	
@@ -18,13 +18,13 @@ public class MetroPlugin {
 		
 	}
 	
-	public void intialize(MetroServer server, Logger logger){
+	public void intialize(Server server, Logger logger){
 		this.server = server;
 		
 		this.logger = logger;
 	}
 	
-	public MetroServer getServer(){
+	public Server getServer(){
 		return server;
 	}
 	

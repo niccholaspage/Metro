@@ -3,16 +3,14 @@ package com.niccholaspage.Metro.base.server.servers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
-import org.bukkit.entity.Player;
 
-import com.niccholaspage.Metro.base.player.MetroOfflinePlayer;
-import com.niccholaspage.Metro.base.player.MetroPlayer;
-import com.niccholaspage.Metro.base.server.MetroServer;
+import com.niccholaspage.Metro.base.player.Player;
+import com.niccholaspage.Metro.base.player.OfflinePlayer;
+import com.niccholaspage.Metro.base.player.players.BukkitPlayer;
 
 
-public class BukkitServer implements MetroServer {
+public class BukkitServer implements com.niccholaspage.Metro.base.server.Server {
 	private final Server server;
 	
 	public BukkitServer(Server server){
@@ -23,31 +21,31 @@ public class BukkitServer implements MetroServer {
 		server.broadcastMessage(message);
 	}
 	
-	public List<MetroPlayer> getOnlinePlayers(){
-		List<MetroPlayer> players = new ArrayList<MetroPlayer>();
+	public List<Player> getOnlinePlayers(){
+		List<Player> players = new ArrayList<Player>();
 		
-		for (Player player : server.getOnlinePlayers()){
-			players.add(new MetroPlayer(player));
+		for (org.bukkit.entity.Player player : server.getOnlinePlayers()){
+			players.add(new BukkitPlayer(player));
 		}
 		
 		return players;
 	}
 	
-	public MetroOfflinePlayer getOfflinePlayer(String name){
-		OfflinePlayer offlinePlayer = server.getOfflinePlayer(name);
+	public OfflinePlayer getOfflinePlayer(String name){
+		org.bukkit.OfflinePlayer offlinePlayer = server.getOfflinePlayer(name);
 		
 		if (offlinePlayer  == null){
 			return null;
 		}
 		
-		return new MetroOfflinePlayer(offlinePlayer);
+		return new OfflinePlayer(offlinePlayer);
 	}
 	
-	public List<MetroOfflinePlayer> getOfflinePlayers(){
-		List<MetroOfflinePlayer> offlinePlayers = new ArrayList<MetroOfflinePlayer>();
+	public List<OfflinePlayer> getOfflinePlayers(){
+		List<OfflinePlayer> offlinePlayers = new ArrayList<OfflinePlayer>();
 		
-		for (OfflinePlayer offlinePlayer : server.getOfflinePlayers()){
-			offlinePlayers.add(new MetroOfflinePlayer(offlinePlayer));
+		for (org.bukkit.OfflinePlayer offlinePlayer : server.getOfflinePlayers()){
+			offlinePlayers.add(new OfflinePlayer(offlinePlayer));
 		}
 		
 		return offlinePlayers;

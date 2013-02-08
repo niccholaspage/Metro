@@ -6,14 +6,13 @@ import java.util.List;
 
 import org.spout.api.Engine;
 import org.spout.api.Server;
-import org.spout.api.entity.Player;
 
-import com.niccholaspage.Metro.base.player.MetroOfflinePlayer;
-import com.niccholaspage.Metro.base.player.MetroPlayer;
-import com.niccholaspage.Metro.base.server.MetroServer;
+import com.niccholaspage.Metro.base.player.OfflinePlayer;
+import com.niccholaspage.Metro.base.player.Player;
+import com.niccholaspage.Metro.base.player.players.SpoutPlayer;
 
 
-public class SpoutServer implements MetroServer {
+public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 	private final Server server;
 	
 	public SpoutServer(Engine engine){
@@ -24,38 +23,38 @@ public class SpoutServer implements MetroServer {
 		server.broadcastMessage(message);
 	}
 	
-	public List<MetroPlayer> getOnlinePlayers(){
-		List<MetroPlayer> players = new ArrayList<MetroPlayer>();
+	public List<Player> getOnlinePlayers(){
+		List<Player> players = new ArrayList<Player>();
 		
-		for (Player player : server.getOnlinePlayers()){
-			players.add(new MetroPlayer(player));
+		for (org.spout.api.entity.Player player : server.getOnlinePlayers()){
+			players.add(new SpoutPlayer(player));
 		}
 		
 		return players;
 	}
 	
-	public MetroOfflinePlayer getOfflinePlayer(String name){
+	public OfflinePlayer getOfflinePlayer(String name){
 		String[] files = new File(server.getDataFolder(), "players").list();
 		
 		
-		MetroOfflinePlayer offlinePlayer = null;
+		OfflinePlayer offlinePlayer = null;
 		
 		for (String file : files){
 			if (file.replace(".dat", "").equalsIgnoreCase(name)){
-				offlinePlayer = new MetroOfflinePlayer(name);
+				offlinePlayer = new OfflinePlayer(name);
 			}
 		}
 		
 		return offlinePlayer;
 	}
 
-	public List<MetroOfflinePlayer> getOfflinePlayers(){
-		List<MetroOfflinePlayer> offlinePlayers = new ArrayList<MetroOfflinePlayer>();
+	public List<OfflinePlayer> getOfflinePlayers(){
+		List<OfflinePlayer> offlinePlayers = new ArrayList<OfflinePlayer>();
 		
 		String[] files = new File(server.getDataFolder(), "players").list();
 		
 		for (String file : files){
-			offlinePlayers.add(new MetroOfflinePlayer(file.replace(".dat", "")));
+			offlinePlayers.add(new OfflinePlayer(file.replace(".dat", "")));
 		}
 		
 		return offlinePlayers;
