@@ -21,6 +21,22 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 		server.broadcastMessage(message);
 	}
 	
+	public Player getOnlinePlayer(String name, boolean exact){
+		org.bukkit.entity.Player player = null;
+		
+		if (exact){
+			player = server.getPlayerExact(name);
+		}else {
+			player = server.getPlayer(name);
+		}
+		
+		if (player == null){
+			return null;
+		}
+		
+		return new BukkitPlayer(player);
+	}
+	
 	public List<Player> getOnlinePlayers(){
 		List<Player> players = new ArrayList<Player>();
 		

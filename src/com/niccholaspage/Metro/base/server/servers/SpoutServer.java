@@ -23,6 +23,18 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		server.broadcastMessage(message);
 	}
 	
+	public Player getOnlinePlayer(String name, boolean exact){
+		org.spout.api.entity.Player player = null;
+		
+		player = server.getPlayer(name, exact);
+		
+		if (player == null){
+			return null;
+		}
+		
+		return new SpoutPlayer(player);
+	}
+	
 	public List<Player> getOnlinePlayers(){
 		List<Player> players = new ArrayList<Player>();
 		
