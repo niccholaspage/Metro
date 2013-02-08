@@ -1,0 +1,10 @@
+.settings/
+bin/
+target/
+build/
+repos/
+Metro.jar
+.gradle/
+.classpath
+.project
+.DS_Store
