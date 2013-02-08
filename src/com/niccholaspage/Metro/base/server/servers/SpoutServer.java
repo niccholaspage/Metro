@@ -54,6 +54,8 @@ public class SpoutServer implements MetroServer {
 		
 		String[] files = new File(server.getDataFolder(), "players").list();
 		
+		System.out.println(new File(server.getDataFolder(), "players").getPath());
+		
 		for (String file : files){
 			offlinePlayers.add(new MetroOfflinePlayer(file.replace(".dat", "")));
 		}
