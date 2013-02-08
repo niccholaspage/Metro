@@ -42,4 +42,14 @@ public class BukkitServer implements MetroServer {
 		
 		return new MetroOfflinePlayer(offlinePlayer);
 	}
+	
+	public List<MetroOfflinePlayer> getOfflinePlayers(){
+		List<MetroOfflinePlayer> offlinePlayers = new ArrayList<MetroOfflinePlayer>();
+		
+		for (OfflinePlayer offlinePlayer : server.getOfflinePlayers()){
+			offlinePlayers.add(new MetroOfflinePlayer(offlinePlayer));
+		}
+		
+		return offlinePlayers;
+	}
 }

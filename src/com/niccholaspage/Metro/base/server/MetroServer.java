@@ -11,4 +11,6 @@ public interface MetroServer {
 	public List<MetroPlayer> getOnlinePlayers();
 	
 	public MetroOfflinePlayer getOfflinePlayer(String name);
+	
+	public List<MetroOfflinePlayer> getOfflinePlayers();
 }
