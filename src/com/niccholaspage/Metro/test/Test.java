@@ -1,6 +1,6 @@
-package test;
+package com.niccholaspage.Metro.test;
 
-import base.MetroPlugin;
+import com.niccholaspage.Metro.base.MetroPlugin;
 
 public class Test extends MetroPlugin {
 	public void onEnable(){

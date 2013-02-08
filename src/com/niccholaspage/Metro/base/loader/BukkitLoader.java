@@ -1,9 +1,10 @@
-package base.loader;
+package com.niccholaspage.Metro.base.loader;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import base.MetroPlugin;
-import base.server.servers.BukkitServer;
+import com.niccholaspage.Metro.base.MetroPlugin;
+import com.niccholaspage.Metro.base.server.servers.BukkitServer;
+
 
 public class BukkitLoader extends JavaPlugin {
 	private MetroPlugin plugin = null;

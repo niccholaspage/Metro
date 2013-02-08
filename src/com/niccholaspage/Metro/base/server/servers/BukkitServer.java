@@ -1,8 +1,9 @@
-package base.server.servers;
+package com.niccholaspage.Metro.base.server.servers;
 
 import org.bukkit.Server;
 
-import base.server.MetroServer;
+import com.niccholaspage.Metro.base.server.MetroServer;
+
 
 public class BukkitServer implements MetroServer {
 	private final Server server;

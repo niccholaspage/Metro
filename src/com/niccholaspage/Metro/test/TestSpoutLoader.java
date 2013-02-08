@@ -1,6 +1,6 @@
-package test;
+package com.niccholaspage.Metro.test;
 
-import base.loader.SpoutLoader;
+import com.niccholaspage.Metro.base.loader.SpoutLoader;
 
 public class TestSpoutLoader extends SpoutLoader {
 	public void onEnable(){

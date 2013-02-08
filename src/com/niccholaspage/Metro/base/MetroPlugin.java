@@ -1,8 +1,9 @@
-package base;
+package com.niccholaspage.Metro.base;
 
 import java.util.logging.Logger;
 
-import base.server.MetroServer;
+import com.niccholaspage.Metro.base.server.MetroServer;
+
 
 public class MetroPlugin {
 	private MetroServer server;

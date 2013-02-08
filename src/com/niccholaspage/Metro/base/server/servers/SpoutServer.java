@@ -1,9 +1,10 @@
-package base.server.servers;
+package com.niccholaspage.Metro.base.server.servers;
 
 import org.spout.api.Engine;
 import org.spout.api.Server;
 
-import base.server.MetroServer;
+import com.niccholaspage.Metro.base.server.MetroServer;
+
 
 public class SpoutServer implements MetroServer {
 	private final Server server;

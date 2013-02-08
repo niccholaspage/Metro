@@ -1,9 +1,10 @@
-package base.loader;
+package com.niccholaspage.Metro.base.loader;
 
 import org.spout.api.plugin.CommonPlugin;
 
-import base.MetroPlugin;
-import base.server.servers.SpoutServer;
+import com.niccholaspage.Metro.base.MetroPlugin;
+import com.niccholaspage.Metro.base.server.servers.SpoutServer;
+
 
 public class SpoutLoader extends CommonPlugin {
 	private MetroPlugin plugin = null;

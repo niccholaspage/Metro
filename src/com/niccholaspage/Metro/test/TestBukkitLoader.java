@@ -1,6 +1,6 @@
-package test;
+package com.niccholaspage.Metro.test;
 
-import base.loader.BukkitLoader;
+import com.niccholaspage.Metro.base.loader.BukkitLoader;
 
 public class TestBukkitLoader extends BukkitLoader {
 	public void onEnable(){
