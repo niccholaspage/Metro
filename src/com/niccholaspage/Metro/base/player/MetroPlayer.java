@@ -1,21 +1,11 @@
 package com.niccholaspage.Metro.base.player;
 
-public class MetroPlayer {
-	private final String name;
-	
-	public MetroPlayer(String name){
-		this.name = name;
-	}
-	
+public class MetroPlayer extends MetroOfflinePlayer {
 	public MetroPlayer(org.bukkit.entity.Player player){
-		this.name = player.getName();
+		super(player);
 	}
 	
 	public MetroPlayer(org.spout.api.entity.Player player){
-		this.name = player.getName();
-	}
-	
-	public String getName(){
-		return name;
+		super(player.getName());
 	}
 }
