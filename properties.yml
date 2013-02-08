@@ -1,6 +1,6 @@
 name: Metro
 
-main: test.TestSpoutLoader
+main: com.niccholaspage.Metro.test.TestSpoutLoader
 
 version: 0.1
 

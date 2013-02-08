@@ -1,5 +1,5 @@
 name: Metro
 
-main: test.TestBukkitLoader
+main: com.niccholaspage.Metro.test.TestBukkitLoader
 
 version: 0.1
