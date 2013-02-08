@@ -1,8 +1,13 @@
 package com.niccholaspage.Metro.base.server.servers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.spout.api.Engine;
 import org.spout.api.Server;
+import org.spout.api.entity.Player;
 
+import com.niccholaspage.Metro.base.player.MetroPlayer;
 import com.niccholaspage.Metro.base.server.MetroServer;
 
 
@@ -15,5 +20,15 @@ public class SpoutServer implements MetroServer {
 	
 	public void broadcastMessage(String message){
 		server.broadcastMessage(message);
+	}
+	
+	public List<MetroPlayer> getOnlinePlayers(){
+		List<MetroPlayer> players = new ArrayList<MetroPlayer>();
+		
+		for (Player player : server.getOnlinePlayers()){
+			players.add(new MetroPlayer(player));
+		}
+		
+		return players;
 	}
 }
