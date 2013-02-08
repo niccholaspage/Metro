@@ -1,5 +1,6 @@
 package com.niccholaspage.Metro.base.server.servers;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,8 @@ public class SpoutServer implements MetroServer {
 	}
 	
 	public MetroOfflinePlayer getOfflinePlayer(String name){
-		String[] files = server.getDataFolder().list();
+		String[] files = new File(server.getDataFolder(), "players").list();
+		
 		
 		MetroOfflinePlayer offlinePlayer = null;
 		
@@ -50,7 +52,7 @@ public class SpoutServer implements MetroServer {
 	public List<MetroOfflinePlayer> getOfflinePlayers(){
 		List<MetroOfflinePlayer> offlinePlayers = new ArrayList<MetroOfflinePlayer>();
 		
-		String[] files = server.getDataFolder().list();
+		String[] files = new File(server.getDataFolder(), "players").list();
 		
 		for (String file : files){
 			offlinePlayers.add(new MetroOfflinePlayer(file.replace(".dat", "")));
