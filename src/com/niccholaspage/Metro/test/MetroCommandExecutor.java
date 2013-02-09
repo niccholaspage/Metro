@@ -2,7 +2,7 @@ package com.niccholaspage.Metro.test;
 
 import com.niccholaspage.Metro.base.command.Command;
 import com.niccholaspage.Metro.base.command.CommandExecutor;
-import com.niccholaspage.Metro.base.messaging.CommandSender;
+import com.niccholaspage.Metro.base.command.CommandSender;
 
 public class MetroCommandExecutor implements CommandExecutor {
 	private final Test plugin;
@@ -12,7 +12,7 @@ public class MetroCommandExecutor implements CommandExecutor {
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
-		plugin.log("Someone used " + commandLabel + "!");
+		plugin.log(sender.getName() + " used " + commandLabel + "!");
 		
 		for (int i = 0; i < args.length; i++){
 			plugin.log(args[i]);

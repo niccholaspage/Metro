@@ -14,4 +14,8 @@ public class SpoutPlayer extends com.niccholaspage.Metro.base.player.Player {
 	public void sendMessage(String message){
 		player.sendMessage(message);
 	}
+	
+	public boolean hasPermission(String permission){
+		return player.hasPermission(permission);
+	}
 }

@@ -11,13 +11,13 @@ public class SpoutCommandExecutor implements org.spout.api.command.CommandExecut
 		this.executor = executor;
 	}
 	
-	public void processCommand(CommandSource sender, org.spout.api.command.Command cmd, CommandContext context) throws CommandException {
+	public void processCommand(CommandSource source, org.spout.api.command.Command cmd, CommandContext context) throws CommandException {
 		String[] args = new String[context.length()];
 		
 		for (int i = 0; i < args.length; i++){
 			args[i] = context.getString(i);
 		}
 		
-		executor.onCommand(null, new Command(cmd.getPreferredName()), cmd.getPreferredName(), args);
+		executor.onCommand(new SpoutCommandSender(source), new Command(cmd.getPreferredName()), cmd.getPreferredName(), args);
 	}
 }
