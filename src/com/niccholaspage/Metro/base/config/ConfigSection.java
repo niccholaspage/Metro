@@ -5,6 +5,8 @@ public interface ConfigSection {
 	
 	public ConfigSection getConfigSection(String key);
 	
+	public void addDefault(String key, Object value);
+	
 	public void setValue(String key, Object value);
 	
 	public Object getValue(String key);

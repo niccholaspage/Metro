@@ -28,6 +28,10 @@ public class BukkitConfigSection extends ValueConfigSection {
 		return new BukkitConfigSection(section.getConfigurationSection(key));
 	}
 	
+	public void addDefault(String key, Object value){
+		section.addDefault(key, value);
+	}
+	
 	public void setValue(String key, Object value){
 		section.set(key, value);
 	}

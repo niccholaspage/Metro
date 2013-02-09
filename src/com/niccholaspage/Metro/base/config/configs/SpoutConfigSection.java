@@ -29,6 +29,12 @@ public class SpoutConfigSection extends ValueConfigSection {
 		return new SpoutConfigSection(node.getNode(key));
 	}
 	
+	public void addDefault(String key, Object value){
+		if (!node.hasNode(key)){
+			node.addNode(key).setValue(value);
+		}
+	}
+	
 	public void setValue(String key, Object value){
 		ConfigurationNode node = this.node.getNode(key);
 		
