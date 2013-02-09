@@ -6,14 +6,14 @@ public abstract class ValueConfigSection implements ConfigSection {
 	}
 	
 	public int getInt(String key){
-		return (int) getValue(key);
+		return (Integer) getValue(key);
 	}
 	
 	public double getDouble(String key){
-		return (double) getValue(key);
+		return (Double) getValue(key);
 	}
 	
 	public long getLong(String key){
-		return (long) getValue(key);
+		return (Long) getValue(key);
 	}
 }
