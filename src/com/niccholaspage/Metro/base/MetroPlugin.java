@@ -29,7 +29,7 @@ public class MetroPlugin {
 	
 	public void log(String message){
 		if (getServer().getType() == ServerType.BUKKIT){
-			message = "[" + getDescription().getName() + "]" + message;
+			message = "[" + getDescription().getName() + "] " + message;
 		}
 		
 		logger.info(message);
