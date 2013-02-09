@@ -20,6 +20,12 @@ public class SpoutConfigSection implements ConfigSection {
 	}
 	
 	public void setValue(String key, Object value){
+		ConfigurationNode node = this.node.getNode(key);
+		
+		if (node == null){
+			node = this.node.addNode(key);
+		}
+		
 		node.getNode(key).setValue(value);
 	}
 	
