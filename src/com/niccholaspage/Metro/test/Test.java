@@ -33,7 +33,9 @@ public class Test extends MetroPlugin {
 		
 		getConfig().save();
 		
-		log("Enabled");
+		log(getResources().getFileResource("config.yml") + "");
+		
+		log("Enabled - " + getResources().getName() + " v" + getResources().getVersion());
 	}
 	
 	public void onDisable(){
