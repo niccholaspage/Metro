@@ -35,7 +35,7 @@ public class SpoutConfigSection implements ConfigSection {
 			node = this.node.addNode(key);
 		}
 		
-		node.getNode(key).setValue(value);
+		node.setValue(value);
 	}
 	
 	public Object getValue(String key){
