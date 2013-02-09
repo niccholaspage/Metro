@@ -41,10 +41,25 @@ public class Test extends MetroPlugin {
 		
 		getResources().registerCommand("metro", new MetroCommandExecutor());
 		
-		log(getServer().getPlugin("Metro") + "");
-		log(getServer().getPlugin("WorldEdit") + "");
+		MetroPlugin plugin = getServer().getPlugin("Metro");
+		
+		logPlugin(plugin);
+		
+		MetroPlugin worldEdit = getServer().getPlugin("WorldEdit");
+		
+		if (worldEdit != null){
+			logPlugin(worldEdit);
+			
+			getServer().disablePlugin(worldEdit);
+		}
 		
 		log("Enabled - " + getResources().getName() + " " + getResources().getVersion() + " running on " + getServer().getVersion());
+		
+		getServer().disablePlugin(this);
+	}
+	
+	public void logPlugin(MetroPlugin plugin){
+		log(plugin.getResources().getName() + " v" + plugin.getResources().getVersion() + ", " + plugin.getDataFolder());
 	}
 	
 	public void onDisable(){
