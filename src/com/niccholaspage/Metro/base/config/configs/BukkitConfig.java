@@ -10,11 +10,15 @@ import com.niccholaspage.Metro.base.config.Config;
 public class BukkitConfig extends BukkitConfigSection implements Config {
 	private final File file;
 	
-	private final YamlConfiguration config;
+	private YamlConfiguration config;
 	
 	public BukkitConfig(File file){
 		this.file = file;
 		
+		reload();
+	}
+	
+	public void reload(){
 		config = YamlConfiguration.loadConfiguration(file);
 		
 		setConfigurationSection(config);

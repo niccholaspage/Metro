@@ -8,9 +8,17 @@ import org.spout.api.util.config.yaml.YamlConfiguration;
 import com.niccholaspage.Metro.base.config.Config;
 
 public class SpoutConfig extends SpoutConfigSection implements Config {
-	private final YamlConfiguration config;
+	private final File file;
+	
+	private YamlConfiguration config;
 	
 	public SpoutConfig(File file){
+		this.file = file;
+		
+		reload();
+	}
+	
+	public void reload(){
 		config = new YamlConfiguration(file);
 		
 		try {
