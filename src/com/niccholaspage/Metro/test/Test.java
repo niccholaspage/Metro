@@ -22,12 +22,12 @@ public class Test extends MetroPlugin {
 			log(player.getName());
 		}
 		
-		getConfig().setValue("gaben", 123);
+		getConfig().addDefault("gaben", 123);
 		getConfig().setValue("test", "testing");
 		
 		getConfig().createConfigSection("testtwo");
 		
-		log(getConfig().getValue("gaben") + "");
+		log(getConfig().getInt("gaben") + "");
 		
 		log(getDataFolder().getPath());
 		
