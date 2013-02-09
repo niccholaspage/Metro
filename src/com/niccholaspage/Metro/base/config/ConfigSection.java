@@ -8,4 +8,12 @@ public interface ConfigSection {
 	public void setValue(String key, Object value);
 	
 	public Object getValue(String key);
+	
+	public String getString(String key);
+	
+	public int getInt(String key);
+	
+	public double getDouble(String key);
+	
+	public long getLong(String key);
 }
