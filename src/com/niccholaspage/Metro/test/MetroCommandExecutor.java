@@ -5,17 +5,11 @@ import com.niccholaspage.Metro.base.command.CommandExecutor;
 import com.niccholaspage.Metro.base.command.CommandSender;
 
 public class MetroCommandExecutor implements CommandExecutor {
-	private final Test plugin;
-	
-	public MetroCommandExecutor(Test plugin){
-		this.plugin = plugin;
-	}
-	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
-		plugin.log(sender.getName() + " used " + commandLabel + "!");
+		sender.sendMessage(sender.getName() + "(You) used " + commandLabel + "!");
 		
 		for (int i = 0; i < args.length; i++){
-			plugin.log(args[i]);
+			sender.sendMessage(args[i]);
 		}
 		
 		return true;

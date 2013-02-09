@@ -35,7 +35,7 @@ public class Test extends MetroPlugin {
 		
 		log(getResources().getFileResource("config.yml") + "");
 		
-		getResources().registerCommand("metro", new MetroCommandExecutor(this));
+		getResources().registerCommand("metro", new MetroCommandExecutor());
 		
 		log("Enabled - " + getResources().getName() + " " + getResources().getVersion() + " running on " + getServer().getVersion());
 	}
