@@ -5,9 +5,12 @@ import java.util.logging.Logger;
 
 import com.niccholaspage.Metro.base.config.Config;
 import com.niccholaspage.Metro.base.server.Server;
+import com.niccholaspage.Metro.base.server.ServerType;
 
 
 public class MetroPlugin {
+	private PluginDescription description;
+	
 	private Server server;
 	
 	private Logger logger;
@@ -24,7 +27,17 @@ public class MetroPlugin {
 		
 	}
 	
-	public void intialize(Server server, Logger logger, Config config, File dataFolder){
+	public void log(String message){
+		if (getServer().getType() == ServerType.BUKKIT){
+			message = "[" + getDescription().getName() + "]" + message;
+		}
+		
+		logger.info(message);
+	}
+	
+	public void intialize(PluginDescription description, Server server, Logger logger, Config config, File dataFolder){
+		this.description = description;
+		
 		this.server = server;
 		
 		this.logger = logger;
@@ -32,6 +45,10 @@ public class MetroPlugin {
 		this.config = config;
 		
 		this.dataFolder = dataFolder;
+	}
+	
+	public PluginDescription getDescription(){
+		return description;
 	}
 	
 	public Server getServer(){

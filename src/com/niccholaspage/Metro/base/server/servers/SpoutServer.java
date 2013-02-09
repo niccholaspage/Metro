@@ -10,6 +10,7 @@ import org.spout.api.Server;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
 import com.niccholaspage.Metro.base.player.players.SpoutPlayer;
+import com.niccholaspage.Metro.base.server.ServerType;
 
 
 public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
@@ -17,6 +18,10 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 	
 	public SpoutServer(Engine engine){
 		this.server = (Server) engine;
+	}
+	
+	public ServerType getType(){
+		return ServerType.SPOUT;
 	}
 	
 	public void broadcastMessage(String message){

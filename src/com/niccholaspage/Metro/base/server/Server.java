@@ -6,6 +6,8 @@ import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
 
 public interface Server {
+	public ServerType getType();
+	
 	public void broadcastMessage(String message);
 	
 	public Player getOnlinePlayer(String name, boolean exact);

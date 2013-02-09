@@ -8,6 +8,7 @@ import org.bukkit.Server;
 import com.niccholaspage.Metro.base.player.Player;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.players.BukkitPlayer;
+import com.niccholaspage.Metro.base.server.ServerType;
 
 
 public class BukkitServer implements com.niccholaspage.Metro.base.server.Server {
@@ -15,6 +16,10 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 	
 	public BukkitServer(Server server){
 		this.server = server;
+	}
+	
+	public ServerType getType(){
+		return ServerType.BUKKIT;
 	}
 	
 	public void broadcastMessage(String message){

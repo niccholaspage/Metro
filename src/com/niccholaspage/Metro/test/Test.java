@@ -39,8 +39,4 @@ public class Test extends MetroPlugin {
 	public void onDisable(){
 		log("Disabled");
 	}
-	
-	public void log(String message){
-		getLogger().info("[Metro] " + message);
-	}
 }
