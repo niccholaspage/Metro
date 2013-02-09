@@ -18,6 +18,14 @@ public class BukkitConfig extends BukkitConfigSection implements Config {
 		reload();
 	}
 	
+	public void setHeader(String header){
+		config.options().header(header);
+	}
+	
+	public String getHeader(){
+		return config.options().header();
+	}
+	
 	public void reload(){
 		config = YamlConfiguration.loadConfiguration(file);
 		

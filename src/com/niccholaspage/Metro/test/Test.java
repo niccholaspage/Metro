@@ -22,6 +22,10 @@ public class Test extends MetroPlugin {
 			log(player.getName());
 		}
 		
+		getConfig().setHeader("Gaben is awesome - Swag\n" +
+		"More gaben testing\n" +
+				"Last test\n");
+		
 		getConfig().addDefault("gaben", 123);
 		getConfig().setValue("test", "testing");
 		

@@ -18,6 +18,20 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 		reload();
 	}
 	
+	public void setHeader(String header){
+		config.setHeader(header.split("\n"));
+	}
+	
+	public String getHeader(){
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < config.getHeader().length; i++){
+			builder.append(config.getHeader()[i] + "\n");
+		}
+		
+		return builder.delete(builder.length() - 3, builder.length() - 1).toString();
+	}
+	
 	public void reload(){
 		config = new YamlConfiguration(file);
 		
