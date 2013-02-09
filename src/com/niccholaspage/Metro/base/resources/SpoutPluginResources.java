@@ -22,6 +22,6 @@ public class SpoutPluginResources extends PluginResources {
 	}
 	
 	public void registerCommand(String name, CommandExecutor executor){
-		plugin.getEngine().getRootCommand().setExecutor(new SpoutCommandExecutor(executor));
+		plugin.getEngine().getRootCommand().addSubCommand(plugin, name).setExecutor(new SpoutCommandExecutor(executor));
 	}
 }
