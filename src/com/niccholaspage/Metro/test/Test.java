@@ -27,11 +27,11 @@ public class Test extends MetroPlugin {
 		
 		getConfig().createConfigSection("testtwo");
 		
+		getConfig().save();
+		
 		log(getConfig().getInt("gaben") + "");
 		
 		log(getDataFolder().getPath());
-		
-		getConfig().save();
 		
 		log(getResources().getFileResource("config.yml") + "");
 		
