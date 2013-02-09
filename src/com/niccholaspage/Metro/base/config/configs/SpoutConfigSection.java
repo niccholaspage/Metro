@@ -15,6 +15,10 @@ public class SpoutConfigSection implements ConfigSection {
 		this.node = node;
 	}
 	
+	public void createConfigSection(String key){
+		node.addNode(key);
+	}
+	
 	public ConfigSection getConfigSection(String key){
 		return new SpoutConfigSection(node.getNode(key));
 	}

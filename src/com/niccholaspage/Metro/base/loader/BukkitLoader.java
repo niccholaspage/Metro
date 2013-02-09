@@ -13,7 +13,7 @@ public class BukkitLoader extends JavaPlugin {
 	private MetroPlugin plugin = null;
 	
 	public void onEnable(){
-		plugin.intialize(new BukkitServer(getServer()), getServer().getLogger(), new BukkitConfig(new File(getDataFolder(), "config.yml")));
+		plugin.intialize(new BukkitServer(getServer()), getServer().getLogger(), new BukkitConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}

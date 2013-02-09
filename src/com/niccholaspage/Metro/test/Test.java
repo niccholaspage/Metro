@@ -6,29 +6,41 @@ import com.niccholaspage.Metro.base.player.Player;
 
 public class Test extends MetroPlugin {
 	public void onEnable(){
-		getLogger().info("Gaben");
-		
 		getServer().broadcastMessage("lol Gabe");
 		
-		getLogger().info("Online Players:");
+		log("Online Players:");
 		
 		for (Player player : getServer().getOnlinePlayers()){
-			getLogger().info(player.getName());
+			log(player.getName());
 			
 			player.sendMessage("Testing the gaben");
 		}
 		
-		getLogger().info("Offline Players:");
+		log("Offline Players:");
 		
 		for (OfflinePlayer player : getServer().getOfflinePlayers()){
-			getLogger().info(player.getName());
+			log(player.getName());
 		}
 		
 		getConfig().setValue("gaben", 123);
 		getConfig().setValue("test", "testing");
 		
-		getLogger().info(getConfig().getValue("gaben") + "");
+		getConfig().createConfigSection("testtwo");
+		
+		log(getConfig().getValue("gaben") + "");
+		
+		log(getDataFolder().getPath());
 		
 		getConfig().save();
+		
+		log("Enabled");
+	}
+	
+	public void onDisable(){
+		log("Disabled");
+	}
+	
+	public void log(String message){
+		getLogger().info("[Metro] " + message);
 	}
 }

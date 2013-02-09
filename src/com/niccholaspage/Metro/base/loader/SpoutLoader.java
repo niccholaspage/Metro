@@ -13,7 +13,7 @@ public class SpoutLoader extends CommonPlugin {
 	private MetroPlugin plugin = null;
 	
 	public void onEnable(){
-		plugin.intialize(new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml")));
+		plugin.intialize(new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}
