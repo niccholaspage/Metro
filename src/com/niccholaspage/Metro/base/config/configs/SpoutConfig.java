@@ -18,6 +18,8 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 		} catch (ConfigurationException e){
 			e.printStackTrace();
 		}
+		
+		setConfigurationNode(config);
 	}
 	
 	public void save(){

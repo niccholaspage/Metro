@@ -1,22 +1,27 @@
 package com.niccholaspage.Metro.base.config.configs;
 
 import org.spout.api.util.config.ConfigurationNode;
+import org.spout.api.util.config.ConfigurationNodeSource;
 
 import com.niccholaspage.Metro.base.config.ConfigSection;
 
 public class SpoutConfigSection implements ConfigSection {
-	private ConfigurationNode node;
+	private ConfigurationNodeSource node;
 	
 	public SpoutConfigSection(){
 		this(null);
 	}
 	
-	public SpoutConfigSection(ConfigurationNode node){
+	public SpoutConfigSection(ConfigurationNodeSource node){
 		this.node = node;
 	}
 	
 	public void createConfigSection(String key){
 		node.addNode(key);
+	}
+	
+	protected void setConfigurationNode(ConfigurationNodeSource node){
+		this.node = node;
 	}
 	
 	public ConfigSection getConfigSection(String key){
