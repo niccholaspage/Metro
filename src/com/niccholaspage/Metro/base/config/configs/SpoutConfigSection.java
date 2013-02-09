@@ -4,8 +4,9 @@ import org.spout.api.util.config.ConfigurationNode;
 import org.spout.api.util.config.ConfigurationNodeSource;
 
 import com.niccholaspage.Metro.base.config.ConfigSection;
+import com.niccholaspage.Metro.base.config.ValueConfigSection;
 
-public class SpoutConfigSection implements ConfigSection {
+public class SpoutConfigSection extends ValueConfigSection {
 	private ConfigurationNodeSource node;
 	
 	public SpoutConfigSection(){
