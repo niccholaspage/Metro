@@ -5,6 +5,10 @@ public abstract class ValueConfigSection implements ConfigSection {
 		return getValue(key).toString();
 	}
 	
+	public boolean getBoolean(String key){
+		return (Boolean) getValue(key);
+	}
+	
 	public int getInt(String key){
 		return (Integer) getValue(key);
 	}
