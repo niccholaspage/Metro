@@ -21,6 +21,8 @@ public class BukkitConfig extends BukkitConfigSection implements Config {
 	public void reload(){
 		config = YamlConfiguration.loadConfiguration(file);
 		
+		config.options().copyDefaults(true);
+		
 		setConfigurationSection(config);
 	}
 	
