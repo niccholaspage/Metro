@@ -104,8 +104,6 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 			return;
 		}
 		
-		plugin.onDisable();
-		
 		server.getPluginManager().disablePlugin((JavaPlugin) plugin.getLoader());
 	}
 }

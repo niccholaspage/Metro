@@ -108,8 +108,6 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 			return;
 		}
 		
-		plugin.onDisable();
-		
 		server.getPluginManager().disablePlugin((Plugin) plugin.getLoader());
 	}
 }
