@@ -3,7 +3,6 @@ package com.niccholaspage.Metro.base.config.configs;
 import org.spout.api.util.config.ConfigurationNode;
 import org.spout.api.util.config.ConfigurationNodeSource;
 
-import com.niccholaspage.Metro.base.config.ConfigSection;
 import com.niccholaspage.Metro.base.config.ValueConfigSection;
 
 public class SpoutConfigSection extends ValueConfigSection {
@@ -17,7 +16,7 @@ public class SpoutConfigSection extends ValueConfigSection {
 		this.node = node;
 	}
 	
-	public ConfigSection createConfigSection(String key){
+	public ValueConfigSection createConfigSection(String key){
 		return new SpoutConfigSection(node.addNode(key));
 	}
 	
@@ -25,7 +24,7 @@ public class SpoutConfigSection extends ValueConfigSection {
 		this.node = node;
 	}
 	
-	public ConfigSection getConfigSection(String key){
+	public ValueConfigSection getConfigSection(String key){
 		return new SpoutConfigSection(node.getNode(key));
 	}
 	

@@ -2,7 +2,6 @@ package com.niccholaspage.Metro.base.config.configs;
 
 import org.bukkit.configuration.ConfigurationSection;
 
-import com.niccholaspage.Metro.base.config.ConfigSection;
 import com.niccholaspage.Metro.base.config.ValueConfigSection;
 
 public class BukkitConfigSection extends ValueConfigSection {
@@ -20,11 +19,11 @@ public class BukkitConfigSection extends ValueConfigSection {
 		this.section = section;
 	}
 	
-	public ConfigSection createConfigSection(String key){
+	public ValueConfigSection createConfigSection(String key){
 		return new BukkitConfigSection(section.createSection(key));
 	}
 	
-	public ConfigSection getConfigSection(String key){
+	public ValueConfigSection getConfigSection(String key){
 		return new BukkitConfigSection(section.getConfigurationSection(key));
 	}
 	
