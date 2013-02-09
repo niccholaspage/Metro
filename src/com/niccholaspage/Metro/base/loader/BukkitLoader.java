@@ -5,8 +5,9 @@ import java.io.File;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.niccholaspage.Metro.base.MetroPlugin;
-import com.niccholaspage.Metro.base.PluginDescription;
+import com.niccholaspage.Metro.base.PluginResources;
 import com.niccholaspage.Metro.base.config.configs.BukkitConfig;
+import com.niccholaspage.Metro.base.resources.BukkitPluginResources;
 import com.niccholaspage.Metro.base.server.servers.BukkitServer;
 
 
@@ -14,9 +15,9 @@ public class BukkitLoader extends JavaPlugin {
 	private MetroPlugin plugin = null;
 	
 	public void onEnable(){
-		PluginDescription description = new PluginDescription(getDescription().getName(), getDescription().getVersion());
+		PluginResources resources = new BukkitPluginResources(this, getDescription().getName(), getDescription().getVersion());
 		
-		plugin.intialize(description, new BukkitServer(getServer()), getServer().getLogger(), new BukkitConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
+		plugin.intialize(resources, new BukkitServer(getServer()), getServer().getLogger(), new BukkitConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}

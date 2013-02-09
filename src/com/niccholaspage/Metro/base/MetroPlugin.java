@@ -9,7 +9,7 @@ import com.niccholaspage.Metro.base.server.ServerType;
 
 
 public class MetroPlugin {
-	private PluginDescription description;
+	private PluginResources resources;
 	
 	private Server server;
 	
@@ -29,14 +29,14 @@ public class MetroPlugin {
 	
 	public void log(String message){
 		if (getServer().getType() == ServerType.BUKKIT){
-			message = "[" + getDescription().getName() + "] " + message;
+			message = "[" + getResources().getName() + "] " + message;
 		}
 		
 		logger.info(message);
 	}
 	
-	public void intialize(PluginDescription description, Server server, Logger logger, Config config, File dataFolder){
-		this.description = description;
+	public void intialize(PluginResources resources, Server server, Logger logger, Config config, File dataFolder){
+		this.resources = resources;
 		
 		this.server = server;
 		
@@ -47,8 +47,8 @@ public class MetroPlugin {
 		this.dataFolder = dataFolder;
 	}
 	
-	public PluginDescription getDescription(){
-		return description;
+	public PluginResources getResources(){
+		return resources;
 	}
 	
 	public Server getServer(){
