@@ -23,5 +23,12 @@ public class Test extends MetroPlugin {
 		for (OfflinePlayer player : getServer().getOfflinePlayers()){
 			getLogger().info(player.getName());
 		}
+		
+		getConfig().setValue("gaben", 123);
+		getConfig().setValue("test", "testing");
+		
+		getLogger().info(getConfig().getValue("gaben") + "");
+		
+		getConfig().save();
 	}
 }
