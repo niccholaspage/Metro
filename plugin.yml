@@ -3,3 +3,8 @@ name: Metro
 main: com.niccholaspage.Metro.test.TestBukkitLoader
 
 version: 0.1
+
+commands:
+  Metro:
+    description: Metro thingy
+    usage: /<command>

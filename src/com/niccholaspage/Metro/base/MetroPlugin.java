@@ -7,7 +7,6 @@ import com.niccholaspage.Metro.base.config.Config;
 import com.niccholaspage.Metro.base.server.Server;
 import com.niccholaspage.Metro.base.server.ServerType;
 
-
 public class MetroPlugin {
 	private PluginResources resources;
 	

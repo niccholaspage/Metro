@@ -2,6 +2,8 @@ package com.niccholaspage.Metro.base;
 
 import java.io.InputStream;
 
+import com.niccholaspage.Metro.base.command.CommandExecutor;
+
 public abstract class PluginResources {
 	private final String name;
 	
@@ -22,4 +24,6 @@ public abstract class PluginResources {
 	}
 	
 	public abstract InputStream getFileResource(String resource);
+	
+	public abstract void registerCommand(String name, CommandExecutor executor);
 }
