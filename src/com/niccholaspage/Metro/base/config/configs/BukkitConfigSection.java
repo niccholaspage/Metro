@@ -3,9 +3,8 @@ package com.niccholaspage.Metro.base.config.configs;
 import org.bukkit.configuration.ConfigurationSection;
 
 import com.niccholaspage.Metro.base.config.ConfigSection;
-import com.niccholaspage.Metro.base.config.ValueConfigSection;
 
-public class BukkitConfigSection extends ValueConfigSection {
+public class BukkitConfigSection implements ConfigSection {
 	private ConfigurationSection section;
 	
 	public BukkitConfigSection(){
@@ -38,5 +37,25 @@ public class BukkitConfigSection extends ValueConfigSection {
 	
 	public Object getValue(String key){
 		return section.get(key);
+	}
+	
+	public String getString(String key){
+		return section.getString(key);
+	}
+	
+	public boolean getBoolean(String key){
+		return section.getBoolean(key);
+	}
+	
+	public int getInt(String key){
+		return section.getInt(key);
+	}
+	
+	public double getDouble(String key){
+		return section.getDouble(key);
+	}
+	
+	public long getLong(String key){
+		return section.getLong(key);
 	}
 }

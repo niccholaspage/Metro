@@ -4,9 +4,8 @@ import org.spout.api.util.config.ConfigurationNode;
 import org.spout.api.util.config.ConfigurationNodeSource;
 
 import com.niccholaspage.Metro.base.config.ConfigSection;
-import com.niccholaspage.Metro.base.config.ValueConfigSection;
 
-public class SpoutConfigSection extends ValueConfigSection {
+public class SpoutConfigSection implements ConfigSection {
 	private ConfigurationNodeSource node;
 	
 	public SpoutConfigSection(){
@@ -47,5 +46,25 @@ public class SpoutConfigSection extends ValueConfigSection {
 	
 	public Object getValue(String key){
 		return node.getNode(key).getValue();
+	}
+	
+	public String getString(String key){
+		return node.getNode(key).getString();
+	}
+	
+	public boolean getBoolean(String key){
+		return node.getNode(key).getBoolean();
+	}
+	
+	public int getInt(String key){
+		return node.getNode(key).getInt();
+	}
+	
+	public double getDouble(String key){
+		return node.getNode(key).getDouble();
+	}
+	
+	public long getLong(String key){
+		return node.getNode(key).getLong();
 	}
 }
