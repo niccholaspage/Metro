@@ -22,6 +22,10 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 		return ServerType.BUKKIT;
 	}
 	
+	public String getVersion(){
+		return server.getBukkitVersion();
+	}
+	
 	public void broadcastMessage(String message){
 		server.broadcastMessage(message);
 	}

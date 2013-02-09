@@ -24,6 +24,10 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		return ServerType.SPOUT;
 	}
 	
+	public String getVersion(){
+		return server.getVersion();
+	}
+	
 	public void broadcastMessage(String message){
 		server.broadcastMessage(message);
 	}

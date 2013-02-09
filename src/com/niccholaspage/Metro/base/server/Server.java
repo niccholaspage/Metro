@@ -8,6 +8,8 @@ import com.niccholaspage.Metro.base.player.Player;
 public interface Server {
 	public ServerType getType();
 	
+	public String getVersion();
+	
 	public void broadcastMessage(String message);
 	
 	public Player getOnlinePlayer(String name, boolean exact);

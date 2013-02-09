@@ -35,7 +35,7 @@ public class Test extends MetroPlugin {
 		
 		log(getResources().getFileResource("config.yml") + "");
 		
-		log("Enabled - " + getResources().getName() + " v" + getResources().getVersion());
+		log("Enabled - " + getResources().getName() + " " + getResources().getVersion() + " running on " + getServer().getVersion());
 	}
 	
 	public void onDisable(){
