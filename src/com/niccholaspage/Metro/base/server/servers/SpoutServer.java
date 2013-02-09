@@ -6,10 +6,16 @@ import java.util.List;
 
 import org.spout.api.Engine;
 import org.spout.api.Server;
+import org.spout.api.plugin.CommonPlugin;
+import org.spout.api.plugin.Plugin;
 
+import com.niccholaspage.Metro.base.MetroPlugin;
+import com.niccholaspage.Metro.base.PluginResources;
+import com.niccholaspage.Metro.base.config.configs.SpoutConfig;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
 import com.niccholaspage.Metro.base.player.players.SpoutPlayer;
+import com.niccholaspage.Metro.base.resources.SpoutPluginResources;
 import com.niccholaspage.Metro.base.server.ServerType;
 
 
@@ -79,5 +85,31 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		}
 		
 		return offlinePlayers;
+	}
+	
+	public MetroPlugin getPlugin(String name){
+		Plugin plugin = server.getPluginManager().getPlugin(name);
+		
+		if (plugin == null){
+			return null;
+		}
+		
+		MetroPlugin metroPlugin = new MetroPlugin();
+		
+		PluginResources resources = new SpoutPluginResources((CommonPlugin) plugin, plugin.getDescription().getName(), plugin.getDescription().getVersion());
+		
+		metroPlugin.intialize(null, resources, new SpoutServer(plugin.getEngine()), plugin.getLogger(), new SpoutConfig(new File(plugin.getDataFolder(), "config.yml")), plugin.getDataFolder());
+		
+		return metroPlugin;
+	}
+	
+	public void disablePlugin(MetroPlugin plugin){
+		if (plugin.getLoader() == null){
+			return;
+		}
+		
+		plugin.onDisable();
+		
+		server.getPluginManager().disablePlugin((Plugin) plugin.getLoader());
 	}
 }

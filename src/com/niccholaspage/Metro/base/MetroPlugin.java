@@ -4,10 +4,13 @@ import java.io.File;
 import java.util.logging.Logger;
 
 import com.niccholaspage.Metro.base.config.Config;
+import com.niccholaspage.Metro.base.loader.Loader;
 import com.niccholaspage.Metro.base.server.Server;
 import com.niccholaspage.Metro.base.server.ServerType;
 
 public class MetroPlugin {
+	private Loader loader;
+	
 	private PluginResources resources;
 	
 	private Server server;
@@ -34,7 +37,9 @@ public class MetroPlugin {
 		logger.info(message);
 	}
 	
-	public void intialize(PluginResources resources, Server server, Logger logger, Config config, File dataFolder){
+	public void intialize(Loader loader, PluginResources resources, Server server, Logger logger, Config config, File dataFolder){
+		this.loader = loader;
+		
 		this.resources = resources;
 		
 		this.server = server;
@@ -44,6 +49,10 @@ public class MetroPlugin {
 		this.config = config;
 		
 		this.dataFolder = dataFolder;
+	}
+	
+	public Loader getLoader(){
+		return loader;
 	}
 	
 	public PluginResources getResources(){

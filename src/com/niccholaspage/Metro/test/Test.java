@@ -41,6 +41,9 @@ public class Test extends MetroPlugin {
 		
 		getResources().registerCommand("metro", new MetroCommandExecutor());
 		
+		log(getServer().getPlugin("Metro") + "");
+		log(getServer().getPlugin("WorldEdit") + "");
+		
 		log("Enabled - " + getResources().getName() + " " + getResources().getVersion() + " running on " + getServer().getVersion());
 	}
 	

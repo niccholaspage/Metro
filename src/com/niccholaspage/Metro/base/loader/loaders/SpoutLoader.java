@@ -1,4 +1,4 @@
-package com.niccholaspage.Metro.base.loader;
+package com.niccholaspage.Metro.base.loader.loaders;
 
 import java.io.File;
 
@@ -7,17 +7,18 @@ import org.spout.api.plugin.CommonPlugin;
 import com.niccholaspage.Metro.base.MetroPlugin;
 import com.niccholaspage.Metro.base.PluginResources;
 import com.niccholaspage.Metro.base.config.configs.SpoutConfig;
+import com.niccholaspage.Metro.base.loader.Loader;
 import com.niccholaspage.Metro.base.resources.SpoutPluginResources;
 import com.niccholaspage.Metro.base.server.servers.SpoutServer;
 
 
-public class SpoutLoader extends CommonPlugin {
+public class SpoutLoader extends CommonPlugin implements Loader {
 	private MetroPlugin plugin = null;
 	
 	public void onEnable(){
 		PluginResources resources = new SpoutPluginResources(this, getDescription().getName(), getDescription().getVersion());
 		
-		plugin.intialize(resources, new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
+		plugin.intialize(this, resources, new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}
