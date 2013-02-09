@@ -20,8 +20,8 @@ public class BukkitConfigSection extends ValueConfigSection {
 		this.section = section;
 	}
 	
-	public void createConfigSection(String key){
-		section.createSection(key);
+	public ConfigSection createConfigSection(String key){
+		return new BukkitConfigSection(section.createSection(key));
 	}
 	
 	public ConfigSection getConfigSection(String key){

@@ -1,7 +1,7 @@
 package com.niccholaspage.Metro.base.config;
 
 public interface ConfigSection {
-	public void createConfigSection(String key);
+	public ConfigSection createConfigSection(String key);
 	
 	public ConfigSection getConfigSection(String key);
 	

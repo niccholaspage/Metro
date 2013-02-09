@@ -17,8 +17,8 @@ public class SpoutConfigSection extends ValueConfigSection {
 		this.node = node;
 	}
 	
-	public void createConfigSection(String key){
-		node.addNode(key);
+	public ConfigSection createConfigSection(String key){
+		return new SpoutConfigSection(node.addNode(key));
 	}
 	
 	protected void setConfigurationNode(ConfigurationNodeSource node){
