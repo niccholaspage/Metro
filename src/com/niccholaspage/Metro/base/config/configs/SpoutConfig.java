@@ -5,26 +5,31 @@ import java.io.InputStream;
 import java.util.Set;
 
 import org.spout.api.exception.ConfigurationException;
+import org.spout.api.plugin.CommonPlugin;
 import org.spout.api.util.config.Configuration;
 import org.spout.api.util.config.yaml.YamlConfiguration;
 
 import com.niccholaspage.Metro.base.config.Config;
 
 public class SpoutConfig extends SpoutConfigSection implements Config {
+	private final CommonPlugin plugin;
+	
 	private final File file;
 	
-	private final InputStream defaultConfigStream;
+	private final String resource;
 	
 	protected YamlConfiguration config;
 	
 	public SpoutConfig(File file){
-		this(file, null);
+		this(null, file, null);
 	}
 	
-	public SpoutConfig(File file, InputStream defaultConfigStream){
+	public SpoutConfig(CommonPlugin plugin, File file, String resource){
+		this.plugin = plugin;
+		
 		this.file = file;
 		
-		this.defaultConfigStream = defaultConfigStream;
+		this.resource = resource;
 		
 		reload();
 	}
@@ -54,15 +59,19 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 		
 		setConfigurationNode(config);
 		
-        if (defaultConfigStream != null) {
-            Configuration defConfig = new YamlConfiguration(defaultConfigStream);
+		if (plugin != null){
+			InputStream defaultConfigStream = plugin.getResource(resource);
 
-    		Set<String> keys = defConfig.getKeys(true);
-    		
-    		for (String key : keys){
-    			addDefault(key, getValue(key));
-    		}
-        }
+			if (defaultConfigStream != null){
+				Configuration defConfig = new YamlConfiguration(defaultConfigStream);
+
+				Set<String> keys = defConfig.getKeys(true);
+
+				for (String key : keys){
+					addDefault(key, getValue(key));
+				}
+			}
+		}
 	}
 	
 	public void save(){

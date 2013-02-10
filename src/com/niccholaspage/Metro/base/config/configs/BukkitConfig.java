@@ -5,24 +5,29 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import com.niccholaspage.Metro.base.config.Config;
 
 public class BukkitConfig extends BukkitConfigSection implements Config {
+	private final JavaPlugin plugin;
+	
 	private final File file;
 	
-	private final InputStream defaultConfigStream;
+	private final String resource;
 	
 	protected YamlConfiguration config;
 	
 	public BukkitConfig(File file){
-		this(file, null);
+		this(null, file, null);
 	}
 	
-	public BukkitConfig(File file, InputStream defaultConfigStream){
+	public BukkitConfig(JavaPlugin plugin, File file, String resource){
+		this.plugin = plugin;
+		
 		this.file = file;
 		
-		this.defaultConfigStream = defaultConfigStream;
+		this.resource = resource;
 		
 		reload();
 	}
@@ -42,10 +47,14 @@ public class BukkitConfig extends BukkitConfigSection implements Config {
 		
 		config.options().copyDefaults(true);
 		
-		if (defaultConfigStream != null) {
-			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defaultConfigStream);
+		if (plugin != null){
+			InputStream defaultConfigStream = plugin.getResource(resource);
+			
+			if (defaultConfigStream != null){
+				YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defaultConfigStream);
 
-			config.setDefaults(defConfig);
+				config.setDefaults(defConfig);
+			}
 		}
 	}
 	
