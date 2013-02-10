@@ -2,7 +2,7 @@ package com.niccholaspage.Metro.base.config.configs;
 
 import java.io.File;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.Map;
 
 import org.spout.api.exception.ConfigurationException;
 import org.spout.api.plugin.CommonPlugin;
@@ -63,12 +63,14 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 			InputStream defaultConfigStream = plugin.getResource(resource);
 
 			if (defaultConfigStream != null){
+				System.out.println("Attempting config write");
+				
 				Configuration defConfig = new YamlConfiguration(defaultConfigStream);
-
-				Set<String> keys = defConfig.getKeys(true);
-
-				for (String key : keys){
-					addDefault(key, getValue(key));
+				
+				Map<String, Object> values = defConfig.getValues();
+				
+				for (String key : values.keySet()){
+					addDefault(key, values.get(key));
 				}
 			}
 		}
