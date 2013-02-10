@@ -1,5 +1,7 @@
 package com.niccholaspage.Metro.base.config.configs;
 
+import java.util.Set;
+
 import org.bukkit.configuration.ConfigurationSection;
 
 import com.niccholaspage.Metro.base.config.ConfigSection;
@@ -57,5 +59,9 @@ public class BukkitConfigSection implements ConfigSection {
 	
 	public long getLong(String key){
 		return section.getLong(key);
+	}
+	
+	public Set<String> getKeys(boolean deep){
+		return section.getKeys(deep);
 	}
 }

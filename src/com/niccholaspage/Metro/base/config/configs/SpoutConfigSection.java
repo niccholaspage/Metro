@@ -1,5 +1,7 @@
 package com.niccholaspage.Metro.base.config.configs;
 
+import java.util.Set;
+
 import org.spout.api.util.config.ConfigurationNode;
 import org.spout.api.util.config.ConfigurationNodeSource;
 
@@ -66,5 +68,9 @@ public class SpoutConfigSection implements ConfigSection {
 	
 	public long getLong(String key){
 		return node.getNode(key).getLong();
+	}
+	
+	public Set<String> getKeys(boolean deep){
+		return node.getKeys(deep);
 	}
 }

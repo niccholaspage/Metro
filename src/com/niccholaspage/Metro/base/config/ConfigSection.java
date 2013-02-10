@@ -1,5 +1,7 @@
 package com.niccholaspage.Metro.base.config;
 
+import java.util.Set;
+
 public interface ConfigSection {
 	public ConfigSection createConfigSection(String key);
 	
@@ -20,4 +22,6 @@ public interface ConfigSection {
 	public double getDouble(String key);
 	
 	public long getLong(String key);
+	
+	public Set<String> getKeys(boolean deep);
 }
