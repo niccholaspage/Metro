@@ -37,7 +37,7 @@ public class BukkitConfigSection implements ConfigSection {
 		Set<String> keys = section.getKeys(true);
 		
 		for (String key : keys){
-			section.addDefault(key, section.getValue(key));
+			this.section.addDefault(key, section.getValue(key));
 		}
 	}
 	
