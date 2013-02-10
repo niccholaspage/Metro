@@ -26,7 +26,13 @@ public class BukkitConfigSection implements ConfigSection {
 	}
 	
 	public ConfigSection getConfigSection(String key){
-		return new BukkitConfigSection(section.getConfigurationSection(key));
+		ConfigurationSection newSection = section.getConfigurationSection(key);
+		
+		if (newSection == null){
+			return null;
+		}
+		
+		return new BukkitConfigSection(newSection);
 	}
 	
 	public void addDefault(String key, Object value){

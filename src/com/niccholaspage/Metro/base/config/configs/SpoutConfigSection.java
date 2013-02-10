@@ -27,7 +27,13 @@ public class SpoutConfigSection implements ConfigSection {
 	}
 	
 	public ConfigSection getConfigSection(String key){
-		return new SpoutConfigSection(node.getNode(key));
+		ConfigurationNodeSource newNode = node.getNode(key);
+		
+		if (newNode == null){
+			return null;
+		}
+		
+		return new SpoutConfigSection(newNode);
 	}
 	
 	public void addDefault(String key, Object value){
