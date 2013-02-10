@@ -100,10 +100,14 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 	}
 	
 	public void disablePlugin(MetroPlugin plugin){
+		Plugin bukkitPlugin;
+		
 		if (plugin.getLoader() == null){
-			return;
+			bukkitPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
+		}else {
+			bukkitPlugin = (Plugin) plugin.getLoader();
 		}
 		
-		server.getPluginManager().disablePlugin((JavaPlugin) plugin.getLoader());
+		server.getPluginManager().disablePlugin(bukkitPlugin);
 	}
 }

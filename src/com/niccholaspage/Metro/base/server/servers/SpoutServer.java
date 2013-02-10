@@ -104,10 +104,14 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 	}
 	
 	public void disablePlugin(MetroPlugin plugin){
+		Plugin spoutPlugin;
+		
 		if (plugin.getLoader() == null){
-			return;
+			spoutPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
+		}else {
+			spoutPlugin = (Plugin) plugin.getLoader();
 		}
 		
-		server.getPluginManager().disablePlugin((Plugin) plugin.getLoader());
+		server.getPluginManager().disablePlugin(spoutPlugin);
 	}
 }
