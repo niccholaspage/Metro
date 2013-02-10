@@ -7,12 +7,11 @@ import org.spout.api.plugin.CommonPlugin;
 import com.niccholaspage.Metro.base.MetroPlugin;
 import com.niccholaspage.Metro.base.PluginResources;
 import com.niccholaspage.Metro.base.config.configs.SpoutConfig;
-import com.niccholaspage.Metro.base.loader.Loader;
 import com.niccholaspage.Metro.base.resources.SpoutPluginResources;
 import com.niccholaspage.Metro.base.server.servers.SpoutServer;
 
 
-public class SpoutLoader extends CommonPlugin implements Loader {
+public class SpoutLoader extends CommonPlugin {
 	private MetroPlugin plugin = null;
 	
 	public void onEnable(){

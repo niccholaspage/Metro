@@ -7,12 +7,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.niccholaspage.Metro.base.MetroPlugin;
 import com.niccholaspage.Metro.base.PluginResources;
 import com.niccholaspage.Metro.base.config.configs.BukkitConfig;
-import com.niccholaspage.Metro.base.loader.Loader;
 import com.niccholaspage.Metro.base.resources.BukkitPluginResources;
 import com.niccholaspage.Metro.base.server.servers.BukkitServer;
 
 
-public class BukkitLoader extends JavaPlugin implements Loader {
+public class BukkitLoader extends JavaPlugin {
 	private MetroPlugin plugin = null;
 	
 	public void onEnable(){
