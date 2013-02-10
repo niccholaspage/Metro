@@ -1,6 +1,7 @@
 package com.niccholaspage.Metro.test;
 
 import com.niccholaspage.Metro.base.MetroPlugin;
+import com.niccholaspage.Metro.base.command.ChatFormat;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
 
@@ -53,7 +54,7 @@ public class Test extends MetroPlugin {
 			getServer().disablePlugin(worldEdit);
 		}
 		
-		log("Enabled - " + getResources().getName() + " " + getResources().getVersion() + " running on " + getServer().getVersion());
+		log("Enabled - " + getResources().getName() + " " + getResources().getVersion() + ChatFormat.GOLD + " running on " + getServer().getVersion());
 		
 		getServer().disablePlugin(this);
 	}
