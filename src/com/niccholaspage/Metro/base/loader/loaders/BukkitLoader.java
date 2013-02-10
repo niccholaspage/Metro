@@ -18,7 +18,7 @@ public class BukkitLoader extends JavaPlugin implements Loader {
 	public void onEnable(){
 		PluginResources resources = new BukkitPluginResources(this, getDescription().getName(), getDescription().getVersion());
 		
-		plugin.intialize(this, resources, new BukkitServer(getServer()), getServer().getLogger(), new BukkitConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
+		plugin.intialize(resources, new BukkitServer(getServer()), getServer().getLogger(), new BukkitConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}

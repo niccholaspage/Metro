@@ -18,7 +18,7 @@ public class SpoutLoader extends CommonPlugin implements Loader {
 	public void onEnable(){
 		PluginResources resources = new SpoutPluginResources(this, getDescription().getName(), getDescription().getVersion());
 		
-		plugin.intialize(this, resources, new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
+		plugin.intialize(resources, new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}

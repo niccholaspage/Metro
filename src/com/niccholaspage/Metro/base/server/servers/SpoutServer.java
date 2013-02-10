@@ -98,19 +98,13 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		
 		PluginResources resources = new SpoutPluginResources((CommonPlugin) plugin, plugin.getDescription().getName(), plugin.getDescription().getVersion());
 		
-		metroPlugin.intialize(null, resources, new SpoutServer(plugin.getEngine()), plugin.getLogger(), new SpoutConfig(new File(plugin.getDataFolder(), "config.yml")), plugin.getDataFolder());
+		metroPlugin.intialize(resources, new SpoutServer(plugin.getEngine()), plugin.getLogger(), new SpoutConfig(new File(plugin.getDataFolder(), "config.yml")), plugin.getDataFolder());
 		
 		return metroPlugin;
 	}
 	
 	public void disablePlugin(MetroPlugin plugin){
-		Plugin spoutPlugin;
-		
-		if (plugin.getLoader() == null){
-			spoutPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
-		}else {
-			spoutPlugin = (Plugin) plugin.getLoader();
-		}
+		Plugin spoutPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
 		
 		server.getPluginManager().disablePlugin(spoutPlugin);
 	}

@@ -94,19 +94,13 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 
 		PluginResources resources = new BukkitPluginResources((JavaPlugin) plugin, plugin.getDescription().getName(), plugin.getDescription().getVersion());
 		
-		metroPlugin.intialize(null, resources, new BukkitServer(plugin.getServer()), plugin.getServer().getLogger(), new BukkitConfig(new File(plugin.getDataFolder(), "config.yml")), plugin.getDataFolder());
+		metroPlugin.intialize(resources, new BukkitServer(plugin.getServer()), plugin.getServer().getLogger(), new BukkitConfig(new File(plugin.getDataFolder(), "config.yml")), plugin.getDataFolder());
 		
 		return metroPlugin;
 	}
 	
 	public void disablePlugin(MetroPlugin plugin){
-		Plugin bukkitPlugin;
-		
-		if (plugin.getLoader() == null){
-			bukkitPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
-		}else {
-			bukkitPlugin = (Plugin) plugin.getLoader();
-		}
+		Plugin bukkitPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
 		
 		server.getPluginManager().disablePlugin(bukkitPlugin);
 	}
