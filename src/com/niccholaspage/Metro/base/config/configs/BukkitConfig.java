@@ -37,6 +37,8 @@ public class BukkitConfig extends BukkitConfigSection implements Config {
 	
 	public void reload(){
 		config = YamlConfiguration.loadConfiguration(file);
+
+		setConfigurationSection(config);
 		
 		config.options().copyDefaults(true);
 		
@@ -45,8 +47,6 @@ public class BukkitConfig extends BukkitConfigSection implements Config {
 
 			config.setDefaults(defConfig);
 		}
-		
-		setConfigurationSection(config);
 	}
 	
 	public void save(){

@@ -52,6 +52,8 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 			e.printStackTrace();
 		}
 		
+		setConfigurationNode(config);
+		
         if (defaultConfigStream != null) {
             Configuration defConfig = new YamlConfiguration(defaultConfigStream);
 
@@ -61,8 +63,6 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
     			addDefault(key, getValue(key));
     		}
         }
-		
-		setConfigurationNode(config);
 	}
 	
 	public void save(){
