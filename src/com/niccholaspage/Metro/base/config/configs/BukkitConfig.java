@@ -40,12 +40,10 @@ public class BukkitConfig extends BukkitConfigSection implements Config {
 		
 		config.options().copyDefaults(true);
 		
-		if (defaultConfigStream != null){
-			if (defaultConfigStream != null) {
-				YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defaultConfigStream);
+		if (defaultConfigStream != null) {
+			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defaultConfigStream);
 
-				config.setDefaults(defConfig);
-			}
+			config.setDefaults(defConfig);
 		}
 		
 		setConfigurationSection(config);
