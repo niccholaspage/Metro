@@ -10,7 +10,7 @@ import com.niccholaspage.Metro.base.config.Config;
 public class SpoutConfig extends SpoutConfigSection implements Config {
 	private final File file;
 	
-	private YamlConfiguration config;
+	protected YamlConfiguration config;
 	
 	public SpoutConfig(File file){
 		this.file = file;

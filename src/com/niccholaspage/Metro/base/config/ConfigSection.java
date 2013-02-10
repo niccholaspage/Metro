@@ -9,6 +9,8 @@ public interface ConfigSection {
 	
 	public void addDefault(String key, Object value);
 	
+	public void addDefaults(ConfigSection section);
+	
 	public void setValue(String key, Object value);
 	
 	public Object getValue(String key);
