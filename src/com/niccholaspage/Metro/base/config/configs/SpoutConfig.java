@@ -1,8 +1,11 @@
 package com.niccholaspage.Metro.base.config.configs;
 
 import java.io.File;
+import java.io.InputStream;
+import java.util.Set;
 
 import org.spout.api.exception.ConfigurationException;
+import org.spout.api.util.config.Configuration;
 import org.spout.api.util.config.yaml.YamlConfiguration;
 
 import com.niccholaspage.Metro.base.config.Config;
@@ -10,10 +13,18 @@ import com.niccholaspage.Metro.base.config.Config;
 public class SpoutConfig extends SpoutConfigSection implements Config {
 	private final File file;
 	
+	private final InputStream defaultConfigStream;
+	
 	protected YamlConfiguration config;
 	
 	public SpoutConfig(File file){
+		this(file, null);
+	}
+	
+	public SpoutConfig(File file, InputStream defaultConfigStream){
 		this.file = file;
+		
+		this.defaultConfigStream = defaultConfigStream;
 		
 		reload();
 	}
@@ -40,6 +51,16 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 		} catch (ConfigurationException e){
 			e.printStackTrace();
 		}
+		
+        if (defaultConfigStream != null) {
+            Configuration defConfig = new YamlConfiguration(defaultConfigStream);
+
+    		Set<String> keys = defConfig.getKeys(true);
+    		
+    		for (String key : keys){
+    			addDefault(key, getValue(key));
+    		}
+        }
 		
 		setConfigurationNode(config);
 	}

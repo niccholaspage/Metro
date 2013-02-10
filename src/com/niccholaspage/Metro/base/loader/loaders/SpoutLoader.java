@@ -6,7 +6,7 @@ import org.spout.api.plugin.CommonPlugin;
 
 import com.niccholaspage.Metro.base.MetroPlugin;
 import com.niccholaspage.Metro.base.PluginResources;
-import com.niccholaspage.Metro.base.config.configs.SpoutDefaultConfig;
+import com.niccholaspage.Metro.base.config.configs.SpoutConfig;
 import com.niccholaspage.Metro.base.resources.SpoutPluginResources;
 import com.niccholaspage.Metro.base.server.servers.SpoutServer;
 
@@ -17,7 +17,7 @@ public class SpoutLoader extends CommonPlugin {
 	public void onEnable(){
 		PluginResources resources = new SpoutPluginResources(this, getDescription().getName(), getDescription().getVersion());
 		
-		plugin.intialize(resources, new SpoutServer(getEngine()), getLogger(), new SpoutDefaultConfig(this, new File(getDataFolder(), "config.yml")), getDataFolder());
+		plugin.intialize(resources, new SpoutServer(getEngine()), getLogger(), new SpoutConfig(new File(getDataFolder(), "config.yml"), getResource("config.yml")), getDataFolder());
 		
 		plugin.onEnable();
 	}
