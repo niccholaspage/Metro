@@ -30,6 +30,8 @@ public class BukkitConfigSection implements ConfigSection {
 	}
 	
 	public void addDefault(String key, Object value){
+		System.out.println(section);
+		
 		section.addDefault(key, value);
 	}
 	
