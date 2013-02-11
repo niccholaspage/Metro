@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.spout.api.exception.ConfigurationException;
 import org.spout.api.plugin.CommonPlugin;
-import org.spout.api.util.config.Configuration;
 import org.spout.api.util.config.yaml.YamlConfiguration;
 
 import com.niccholaspage.Metro.base.config.Config;
@@ -71,7 +70,11 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 					e.printStackTrace();
 				}
 				
-				config.setHeader(defConfig.getHeader());
+				String[] header = defConfig.getHeader();
+				
+				if (header != null){
+					config.setHeader(header);
+				}
 				
 				Map<String, Object> values = defConfig.getValues();
 				
