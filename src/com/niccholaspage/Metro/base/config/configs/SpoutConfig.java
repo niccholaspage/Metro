@@ -63,9 +63,15 @@ public class SpoutConfig extends SpoutConfigSection implements Config {
 			InputStream defaultConfigStream = plugin.getResource(resource);
 
 			if (defaultConfigStream != null){
-				System.out.println("Attempting config write");
+				YamlConfiguration defConfig = new YamlConfiguration(defaultConfigStream);
 				
-				Configuration defConfig = new YamlConfiguration(defaultConfigStream);
+				try {
+					defConfig.load();
+				} catch (ConfigurationException e){
+					e.printStackTrace();
+				}
+				
+				config.setHeader(defConfig.getHeader());
 				
 				Map<String, Object> values = defConfig.getValues();
 				
