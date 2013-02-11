@@ -33,7 +33,7 @@ public class MetroPlugin {
 		if (getServer().getType() == ServerType.BUKKIT){
 			getLogger().info("[" + getResources().getName() + "] " + object);
 		}else if (getServer().getType() == ServerType.SPOUT){
-			((PluginLogger) getLogger()).setTag(new ChatArguments(object));
+			((PluginLogger) getLogger()).setTag(new ChatArguments("[", getResources().getName(), "] ", object));
 			
 			getLogger().info("");
 		}
