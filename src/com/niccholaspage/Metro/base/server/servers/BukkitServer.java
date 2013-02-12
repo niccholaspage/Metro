@@ -70,14 +70,14 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 			return null;
 		}
 		
-		return new OfflinePlayer(offlinePlayer);
+		return new OfflinePlayer(offlinePlayer.getName());
 	}
 	
 	public List<OfflinePlayer> getOfflinePlayers(){
 		List<OfflinePlayer> offlinePlayers = new ArrayList<OfflinePlayer>();
 		
 		for (org.bukkit.OfflinePlayer offlinePlayer : server.getOfflinePlayers()){
-			offlinePlayers.add(new OfflinePlayer(offlinePlayer));
+			offlinePlayers.add(new OfflinePlayer(offlinePlayer.getName()));
 		}
 		
 		return offlinePlayers;

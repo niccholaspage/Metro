@@ -6,7 +6,7 @@ public class BukkitPlayer extends com.niccholaspage.Metro.base.player.Player {
 	private final Player player;
 	
 	public BukkitPlayer(Player player){
-		super(player);
+		super(player.getName());
 		
 		this.player = player;
 	}

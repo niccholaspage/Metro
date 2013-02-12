@@ -6,7 +6,7 @@ public class SpoutPlayer extends com.niccholaspage.Metro.base.player.Player {
 	private final Player player;
 	
 	public SpoutPlayer(Player player){
-		super(player);
+		super(player.getName());
 		
 		this.player = player;
 	}
