@@ -3,8 +3,8 @@ package com.niccholaspage.Metro.base;
 import java.io.File;
 import java.util.logging.Logger;
 
+import org.spout.api.Spout;
 import org.spout.api.chat.ChatArguments;
-import org.spout.api.plugin.PluginLogger;
 
 import com.niccholaspage.Metro.base.config.Config;
 import com.niccholaspage.Metro.base.server.Server;
@@ -31,11 +31,9 @@ public class MetroPlugin {
 	
 	public void log(String message){
 		if (getServer().getType() == ServerType.BUKKIT){
-			getLogger().info("[" + getResources().getName() + "] " + message);
+			getLogger().info(message);
 		}else if (getServer().getType() == ServerType.SPOUT){
-			((PluginLogger) getLogger()).setTag(new ChatArguments("[", getResources().getName(), "] ", message));
-			
-			getLogger().info("");
+			Spout.getEngine().getConsoles().addMessage(ChatArguments.fromFormatString(message));
 		}
 	}
 	

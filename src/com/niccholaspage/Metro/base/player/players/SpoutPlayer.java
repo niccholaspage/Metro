@@ -1,5 +1,6 @@
 package com.niccholaspage.Metro.base.player.players;
 
+import org.spout.api.chat.ChatArguments;
 import org.spout.api.entity.Player;
 
 public class SpoutPlayer extends com.niccholaspage.Metro.base.player.Player {
@@ -12,7 +13,7 @@ public class SpoutPlayer extends com.niccholaspage.Metro.base.player.Player {
 	}
 	
 	public void sendMessage(String message){
-		player.sendMessage(message);
+		player.sendMessage(ChatArguments.fromFormatString(message));
 	}
 	
 	public boolean hasPermission(String permission){

@@ -1,17 +1,16 @@
 package com.niccholaspage.Metro.base.chat;
 
-import org.spout.api.chat.ChatArguments;
 import org.spout.api.chat.style.ChatStyle;
 
 public class SpoutChatFormat extends ChatFormat {
-	private final ChatStyle style;
+	private final String style;
 	
-	public SpoutChatFormat(ChatStyle style){
+	public SpoutChatFormat(String style){
 		this.style = style;
 	}
 	
 	public String toString(){
-		return new ChatArguments(style).asString();
+		return "{{" + style + "}}";
 	}
 	
 	public String stripColors(String message){
