@@ -11,7 +11,7 @@ public class SpoutChatFormat extends ChatFormat {
 	}
 	
 	public String toString(){
-		return new ChatArguments(style).asString();
+		return new ChatArguments(style).toString();
 	}
 	
 	public String stripColors(String message){

@@ -29,11 +29,11 @@ public class MetroPlugin {
 		
 	}
 	
-	public void log(Object object){
+	public void log(String message){
 		if (getServer().getType() == ServerType.BUKKIT){
-			getLogger().info("[" + getResources().getName() + "] " + object);
+			getLogger().info("[" + getResources().getName() + "] " + message);
 		}else if (getServer().getType() == ServerType.SPOUT){
-			((PluginLogger) getLogger()).setTag(new ChatArguments("[", getResources().getName(), "] ", object));
+			((PluginLogger) getLogger()).setTag(new ChatArguments("[", getResources().getName(), "] ", message));
 			
 			getLogger().info("");
 		}
