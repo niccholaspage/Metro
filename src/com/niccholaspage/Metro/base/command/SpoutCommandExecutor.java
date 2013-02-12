@@ -3,6 +3,9 @@ package com.niccholaspage.Metro.base.command;
 import org.spout.api.command.CommandContext;
 import org.spout.api.command.CommandSource;
 import org.spout.api.exception.CommandException;
+import org.spout.api.entity.Player;
+
+import com.niccholaspage.Metro.base.player.players.SpoutPlayer;
 
 public class SpoutCommandExecutor implements org.spout.api.command.CommandExecutor {
 	private final CommandExecutor executor;
@@ -18,6 +21,14 @@ public class SpoutCommandExecutor implements org.spout.api.command.CommandExecut
 			args[i] = context.getString(i);
 		}
 		
-		executor.onCommand(new SpoutCommandSender(source), new Command(cmd.getPreferredName()), cmd.getPreferredName(), args);
+		CommandSender sender;
+		
+		if (source instanceof Player){
+			sender = new SpoutPlayer((Player) source);
+		}else {
+			sender = new SpoutCommandSender(source);
+		}
+		
+		executor.onCommand(sender, new Command(cmd.getPreferredName()), cmd.getPreferredName(), args);
 	}
 }
