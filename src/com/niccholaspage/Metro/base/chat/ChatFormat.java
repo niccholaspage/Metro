@@ -25,4 +25,10 @@ public abstract class ChatFormat {
 	public static ChatFormat RESET;
 	
 	public abstract String toString();
+	
+	public abstract String stripColors(String message);
+	
+	public static String stripColor(String message){
+		return BLACK.stripColors(message);
+	}
 }

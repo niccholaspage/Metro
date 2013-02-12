@@ -12,4 +12,8 @@ public class BukkitChatFormat extends ChatFormat {
 	public String toString(){
 		return color + "";
 	}
+	
+	public String stripColors(String message){
+		return ChatColor.stripColor(message);
+	}
 }
