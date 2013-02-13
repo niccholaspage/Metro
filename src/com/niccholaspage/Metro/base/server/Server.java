@@ -5,6 +5,7 @@ import java.util.List;
 import com.niccholaspage.Metro.base.MetroPlugin;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
+import com.niccholaspage.Metro.base.scheduler.Scheduler;
 
 public interface Server {
 	public ServerType getType();
@@ -24,4 +25,6 @@ public interface Server {
 	public MetroPlugin getPlugin(String name);
 	
 	public void disablePlugin(MetroPlugin plugin);
+	
+	public Scheduler getScheduler();
 }

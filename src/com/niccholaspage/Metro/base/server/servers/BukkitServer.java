@@ -15,14 +15,20 @@ import com.niccholaspage.Metro.base.player.Player;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.players.BukkitPlayer;
 import com.niccholaspage.Metro.base.resources.BukkitPluginResources;
+import com.niccholaspage.Metro.base.scheduler.Scheduler;
+import com.niccholaspage.Metro.base.scheduler.schedulers.BukkitScheduler;
 import com.niccholaspage.Metro.base.server.ServerType;
 
 
 public class BukkitServer implements com.niccholaspage.Metro.base.server.Server {
 	private final Server server;
 	
+	private final Scheduler scheduler;
+	
 	public BukkitServer(Server server){
 		this.server = server;
+		
+		scheduler = new BukkitScheduler(server);
 	}
 	
 	public ServerType getType(){
@@ -103,5 +109,9 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 		Plugin bukkitPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
 		
 		server.getPluginManager().disablePlugin(bukkitPlugin);
+	}
+	
+	public Scheduler getScheduler(){
+		return scheduler;
 	}
 }

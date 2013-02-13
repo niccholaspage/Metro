@@ -16,14 +16,20 @@ import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
 import com.niccholaspage.Metro.base.player.players.SpoutPlayer;
 import com.niccholaspage.Metro.base.resources.SpoutPluginResources;
+import com.niccholaspage.Metro.base.scheduler.Scheduler;
+import com.niccholaspage.Metro.base.scheduler.schedulers.SpoutScheduler;
 import com.niccholaspage.Metro.base.server.ServerType;
 
 
 public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 	private final Server server;
 	
+	private final Scheduler scheduler;
+	
 	public SpoutServer(Engine engine){
 		this.server = (Server) engine;
+		
+		scheduler = new SpoutScheduler(server);
 	}
 	
 	public ServerType getType(){
@@ -107,5 +113,9 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		Plugin spoutPlugin = server.getPluginManager().getPlugin(plugin.getResources().getName());
 		
 		server.getPluginManager().disablePlugin(spoutPlugin);
+	}
+
+	public Scheduler getScheduler(){
+		return scheduler;
 	}
 }
