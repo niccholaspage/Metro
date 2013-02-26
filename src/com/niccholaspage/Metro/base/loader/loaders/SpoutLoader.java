@@ -60,4 +60,8 @@ public class SpoutLoader extends CommonPlugin {
 	public void setPlugin(MetroPlugin plugin){
 		this.plugin = plugin;
 	}
+	
+	public MetroPlugin getPlugin(){
+		return plugin;
+	}
 }

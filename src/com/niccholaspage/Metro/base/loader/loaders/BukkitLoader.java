@@ -61,4 +61,8 @@ public class BukkitLoader extends JavaPlugin {
 	public void setPlugin(MetroPlugin plugin){
 		this.plugin = plugin;
 	}
+	
+	public MetroPlugin getPlugin(){
+		return plugin;
+	}
 }
