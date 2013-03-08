@@ -6,6 +6,7 @@ import com.niccholaspage.Metro.base.MetroPlugin;
 import com.niccholaspage.Metro.base.player.OfflinePlayer;
 import com.niccholaspage.Metro.base.player.Player;
 import com.niccholaspage.Metro.base.scheduler.Scheduler;
+import com.niccholaspage.Metro.world.World;
 
 public interface Server {
 	public ServerType getType();
@@ -21,6 +22,8 @@ public interface Server {
 	public OfflinePlayer getOfflinePlayer(String name);
 	
 	public List<OfflinePlayer> getOfflinePlayers();
+	
+	public World getWorld(String name);
 	
 	public MetroPlugin getPlugin(String name);
 	

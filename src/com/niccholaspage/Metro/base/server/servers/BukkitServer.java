@@ -18,6 +18,8 @@ import com.niccholaspage.Metro.base.resources.BukkitPluginResources;
 import com.niccholaspage.Metro.base.scheduler.Scheduler;
 import com.niccholaspage.Metro.base.scheduler.schedulers.BukkitScheduler;
 import com.niccholaspage.Metro.base.server.ServerType;
+import com.niccholaspage.Metro.world.World;
+import com.niccholaspage.Metro.world.worlds.BukkitWorld;
 
 
 public class BukkitServer implements com.niccholaspage.Metro.base.server.Server {
@@ -87,6 +89,10 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 		}
 		
 		return offlinePlayers;
+	}
+	
+	public World getWorld(String name){
+		return new BukkitWorld(server.getWorld(name));
 	}
 	
 	public MetroPlugin getPlugin(String name){

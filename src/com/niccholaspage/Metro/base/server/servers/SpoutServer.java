@@ -19,6 +19,8 @@ import com.niccholaspage.Metro.base.resources.SpoutPluginResources;
 import com.niccholaspage.Metro.base.scheduler.Scheduler;
 import com.niccholaspage.Metro.base.scheduler.schedulers.SpoutScheduler;
 import com.niccholaspage.Metro.base.server.ServerType;
+import com.niccholaspage.Metro.world.World;
+import com.niccholaspage.Metro.world.worlds.SpoutWorld;
 
 
 public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
@@ -91,6 +93,10 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		}
 		
 		return offlinePlayers;
+	}
+	
+	public World getWorld(String name){
+		return new SpoutWorld(server.getWorld(name));
 	}
 	
 	public MetroPlugin getPlugin(String name){
