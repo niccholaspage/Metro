@@ -25,6 +25,8 @@ public interface Server {
 	
 	public World getWorld(String name);
 	
+	public List<World> getWorlds();
+	
 	public MetroPlugin getPlugin(String name);
 	
 	public void disablePlugin(MetroPlugin plugin);

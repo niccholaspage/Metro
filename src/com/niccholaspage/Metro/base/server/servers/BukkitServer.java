@@ -95,6 +95,16 @@ public class BukkitServer implements com.niccholaspage.Metro.base.server.Server 
 		return new BukkitWorld(server.getWorld(name));
 	}
 	
+	public List<World> getWorlds(){
+		List<World> worlds = new ArrayList<World>();
+		
+		for (org.bukkit.World world : server.getWorlds()){
+			worlds.add(new BukkitWorld(world));
+		}
+		
+		return worlds;
+	}
+	
 	public MetroPlugin getPlugin(String name){
 		Plugin plugin = server.getPluginManager().getPlugin(name);
 		

@@ -99,6 +99,16 @@ public class SpoutServer implements com.niccholaspage.Metro.base.server.Server {
 		return new SpoutWorld(server.getWorld(name));
 	}
 	
+	public List<World> getWorlds(){
+		List<World> worlds = new ArrayList<World>();
+		
+		for (org.spout.api.geo.World world : server.getWorlds()){
+			worlds.add(new SpoutWorld(world));
+		}
+		
+		return worlds;
+	}
+	
 	public MetroPlugin getPlugin(String name){
 		Plugin plugin = server.getPluginManager().getPlugin(name);
 		
