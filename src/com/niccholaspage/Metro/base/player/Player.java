@@ -8,6 +8,8 @@ public abstract class Player extends OfflinePlayer implements CommandSender {
 		super(name);
 	}
 	
+	public abstract void setDisplayName(String name);
+	
 	public abstract String getDisplayName();
 	
 	public abstract World getWorld();

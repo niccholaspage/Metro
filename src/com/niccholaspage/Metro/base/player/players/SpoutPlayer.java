@@ -23,6 +23,10 @@ public class SpoutPlayer extends com.niccholaspage.Metro.base.player.Player {
 		return player.hasPermission(permission);
 	}
 	
+	public void setDisplayName(String name){
+		player.setDisplayName(name);
+	}
+	
 	public String getDisplayName(){
 		return player.getDisplayName();
 	}
