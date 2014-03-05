@@ -1,7 +1,6 @@
 package com.niccholaspage.Metro.base;
 
 import java.io.File;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.niccholaspage.Metro.base.config.Config;
@@ -30,8 +29,6 @@ public class MetroPlugin {
 	public void log(String message){
 		if (getServer().getType() == ServerType.BUKKIT){
 			getLogger().info(message);
-		}else if (getServer().getType() == ServerType.SPOUT){
-			org.spout.api.Spout.getLogger().log(new org.spout.api.chat.FormattedLogRecord(Level.INFO, message));
 		}
 	}
 	
